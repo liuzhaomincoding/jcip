@@ -11,7 +11,6 @@ import java.net.Socket;
  *
  * @author Brian Goetz and Tim Peierls
  */
-
 public class SingleThreadWebServer {
     public static void main(String[] args) throws IOException {
         ServerSocket socket = new ServerSocket(80);
