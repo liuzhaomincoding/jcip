@@ -1,24 +1,9 @@
 package net.jcip.annotations;
 import java.lang.annotation.*;
 
-/*
- * Copyright (c) 2005 Brian Goetz and Tim Peierls
- * Released under the Creative Commons Attribution License
- *   (http://creativecommons.org/licenses/by/2.5)
- * Official home: http://www.jcip.net
- *
- * Any republication or derived work distributed in source code form
- * must include this copyright and license notice.
- */
-
-
-
 /**
- * The class to which this annotation is applied is thread-safe.  This means that
- * no sequences of accesses (reads and writes to public fields, calls to public methods)
- * may put the object into an invalid state, regardless of the interleaving of those actions
- * by the runtime, and without requiring any additional synchronization or coordination on the
- * part of the caller.
+ * 应用这个注解的类都是线程安全的。也就是说没有操作序列（公共属性的读写，公共方法的调用）会把对象变成无效状态，
+ * 即使这些操作被运行时交互执行，并且不需要调用着额外的同步或协调。
  */
 @Documented
 @Target(ElementType.TYPE)
