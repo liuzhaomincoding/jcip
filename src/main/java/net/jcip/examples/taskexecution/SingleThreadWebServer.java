@@ -1,15 +1,12 @@
-package net.jcip.examples;
+package net.jcip.examples.taskexecution;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * SingleThreadWebServer
- * <p/>
- * Sequential web server
- *
- * @author Brian Goetz and Tim Peierls
+ * SingleThreadWebServer 单线程web服务器
+ * 并发能力很差，只能串行的处理连接
  */
 public class SingleThreadWebServer {
     public static void main(String[] args) throws IOException {

@@ -1,4 +1,6 @@
-package net.jcip.examples;
+package net.jcip.memoizer;
+
+import net.jcip.Computable;
 
 import java.util.*;
 import java.util.concurrent.*;

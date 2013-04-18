@@ -1,13 +1,10 @@
-package net.jcip.examples;
+package net.jcip.barrier;
 
 import java.util.concurrent.*;
 
 /**
- * CellularAutomata
- *
- * Coordinating computation in a cellular automaton with CyclicBarrier
- *
- * @author Brian Goetz and Tim Peierls
+ * Barrier 允许一组线程相互协调，互相等待
+ * CyclicBarriers 对于固定数量的线程中非常有用，这些线程偶尔需要互相等待
  */
 public class CellularAutomata {
     private final Board mainBoard;
@@ -16,6 +13,7 @@ public class CellularAutomata {
 
     public CellularAutomata(Board board) {
         this.mainBoard = board;
+        // 获取可用的处理器数目
         int count = Runtime.getRuntime().availableProcessors();
         this.barrier = new CyclicBarrier(count,
                 new Runnable() {
@@ -24,6 +22,7 @@ public class CellularAutomata {
                     }});
         this.workers = new Worker[count];
         for (int i = 0; i < count; i++)
+            // 任务分解
             workers[i] = new Worker(mainBoard.getSubBoard(count, i));
     }
 
@@ -31,12 +30,14 @@ public class CellularAutomata {
         private final Board board;
 
         public Worker(Board board) { this.board = board; }
+
         public void run() {
             while (!board.hasConverged()) {
                 for (int x = 0; x < board.getMaxX(); x++)
                     for (int y = 0; y < board.getMaxY(); y++)
                         board.setNewValue(x, y, computeValue(x, y));
                 try {
+                    // 线程执行完任务后都在barrier上await
                     barrier.await();
                 } catch (InterruptedException ex) {
                     return;

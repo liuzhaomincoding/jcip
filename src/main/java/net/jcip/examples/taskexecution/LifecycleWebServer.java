@@ -1,4 +1,4 @@
-package net.jcip.examples;
+package net.jcip.examples.taskexecution;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -8,10 +8,8 @@ import java.util.logging.*;
 
 /**
  * LifecycleWebServer
- * <p/>
- * Web server with shutdown support
- *
- * @author Brian Goetz and Tim Peierls
+ * ExecutorService 继承了 Executor，实现了一些生命周期的方法
+ * 就是因为实现了这些方法，才称得上是 Service
  */
 public class LifecycleWebServer {
     private final ExecutorService exec = Executors.newCachedThreadPool();

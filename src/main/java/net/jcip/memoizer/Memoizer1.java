@@ -1,8 +1,9 @@
-package net.jcip.examples;
+package net.jcip.memoizer;
 
 import java.math.BigInteger;
 import java.util.*;
 
+import net.jcip.Computable;
 import net.jcip.annotations.*;
 
 /**
@@ -28,11 +29,6 @@ public class Memoizer1 <A, V> implements Computable<A, V> {
         }
         return result;
     }
-}
-
-
-interface Computable <A, V> {
-    V compute(A arg) throws InterruptedException;
 }
 
 class ExpensiveFunction

@@ -1,4 +1,4 @@
-package net.jcip.examples;
+package net.jcip.examples.taskexecution;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -7,10 +7,7 @@ import java.util.concurrent.*;
 
 /**
  * TaskExecutionWebServer
- * <p/>
- * Web server using a thread pool
- *
- * @author Brian Goetz and Tim Peierls
+ * 使用 Executor 的 web server
  */
 public class TaskExecutionWebServer {
     private static final int NTHREADS = 100;

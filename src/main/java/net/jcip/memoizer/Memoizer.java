@@ -1,4 +1,7 @@
-package net.jcip.examples;
+package net.jcip.memoizer;
+
+import net.jcip.Computable;
+import net.jcip.examples.LaunderThrowable;
 
 import java.util.concurrent.*;
 
@@ -28,6 +31,7 @@ public class Memoizer <A, V> implements Computable<A, V> {
                     }
                 };
                 FutureTask<V> ft = new FutureTask<V>(eval);
+                // 多个线程同时执行这句代码
                 f = cache.putIfAbsent(arg, ft);
                 if (f == null) {
                     f = ft;

@@ -1,15 +1,11 @@
-package net.jcip.examples;
+package net.jcip.examples.taskexecution;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * ThreadPerTaskWebServer
- * <p/>
- * Web server that starts a new thread for each request
- *
- * @author Brian Goetz and Tim Peierls
+ * ThreadPerTaskWebServer 为每一个请求创建一个线程
  */
 public class ThreadPerTaskWebServer {
     public static void main(String[] args) throws IOException {

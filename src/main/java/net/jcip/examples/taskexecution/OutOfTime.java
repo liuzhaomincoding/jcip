@@ -1,14 +1,12 @@
-package net.jcip.examples;
+package net.jcip.examples.taskexecution;
 
 import java.util.*;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
  * OutOfTime
- * <p/>
- * Class illustrating confusing Timer behavior
- *
- * @author Brian Goetz and Tim Peierls
+ * Timer 并不处理异常，直接退出
+ * 其他缺陷：单线程
  */
 
 public class OutOfTime {
