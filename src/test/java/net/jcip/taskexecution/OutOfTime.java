@@ -1,4 +1,4 @@
-package net.jcip.examples.taskexecution;
+package net.jcip.taskexecution;
 
 import java.util.*;
 import static java.util.concurrent.TimeUnit.SECONDS;

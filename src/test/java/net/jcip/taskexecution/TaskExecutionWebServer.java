@@ -1,4 +1,4 @@
-package net.jcip.examples.taskexecution;
+package net.jcip.taskexecution;
 
 import java.io.IOException;
 import java.net.ServerSocket;
