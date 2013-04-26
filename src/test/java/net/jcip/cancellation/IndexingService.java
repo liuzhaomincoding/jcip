@@ -1,4 +1,4 @@
-package net.jcip.examples;
+package net.jcip.cancellation;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -6,10 +6,7 @@ import java.util.concurrent.*;
 
 /**
  * IndexingService
- * <p/>
- * Shutdown with poison pill
- *
- * @author Brian Goetz and Tim Peierls
+ * 使用poison pill来关闭生产者-消费者服务
  */
 public class IndexingService {
     private static final int CAPACITY = 1000;

@@ -1,4 +1,4 @@
-package net.jcip.examples;
+package net.jcip.cancellation;
 
 import java.io.PrintWriter;
 import java.io.Writer;
@@ -8,10 +8,7 @@ import net.jcip.annotations.*;
 
 /**
  * LogService
- * <p/>
- * Adding reliable cancellation to LogWriter
- *
- * @author Brian Goetz and Tim Peierls
+ * 为LogWriter添加可靠的取消
  */
 public class LogService {
     private final BlockingQueue<String> queue;
@@ -37,6 +34,7 @@ public class LogService {
         loggerThread.interrupt();
     }
 
+    // 生产者
     public void log(String msg) throws InterruptedException {
         synchronized (this) {
             if (isShutdown)
@@ -46,6 +44,7 @@ public class LogService {
         queue.put(msg);
     }
 
+    // 消费者
     private class LoggerThread extends Thread {
         public void run() {
             try {

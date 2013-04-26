@@ -1,14 +1,11 @@
-package net.jcip.examples;
+package net.jcip.cancellation;
 
 import java.util.*;
 import java.util.concurrent.*;
 
 /**
  * TrackingExecutor
- * <p/>
- * ExecutorService that keeps track of cancelled tasks after shutdown
- *
- * @author Brian Goetz and Tim Peierls
+ * 记录 executor 取消时，正在执行的任务，这些任务可能没有完成
  */
 public class TrackingExecutor extends AbstractExecutorService {
     private final ExecutorService exec;

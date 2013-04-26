@@ -1,19 +1,17 @@
-package net.jcip.examples;
+package net.jcip.cancellation;
 
 import java.net.URL;
 import java.util.*;
 import java.util.concurrent.*;
 
 import net.jcip.annotations.*;
+import net.jcip.cancellation.TrackingExecutor;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 /**
  * WebCrawler
- * <p/>
- * Using TrackingExecutorService to save unfinished tasks for later execution
- *
- * @author Brian Goetz and Tim Peierls
+ * 使用 TrackingExecutor 来保存未完成的任务
  */
 public abstract class WebCrawler {
     private volatile TrackingExecutor exec;

@@ -1,4 +1,4 @@
-package net.jcip.examples;
+package net.jcip.cancellation;
 
 import java.io.PrintWriter;
 import java.io.Writer;
@@ -6,10 +6,7 @@ import java.util.concurrent.*;
 
 /**
  * LogWriter
- * <p/>
- * Producer-consumer logging service with no shutdown support
- *
- * @author Brian Goetz and Tim Peierls
+ * 生产者-消费者服务，不支持关闭
  */
 public class LogWriter {
     private final BlockingQueue<String> queue;
